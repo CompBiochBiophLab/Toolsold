@@ -79,3 +79,7 @@ https://developers.google.com/machine-learning/crash-course/ml-intro
 # Mindfulness
 
  I know it may seem far from science, but it is far only in appearance. I think it is important to learn how to deal with failures and mindfulness is a tool for it. Learning to stop, take a deep breath  and start again do not harm anyone
+
+### On this document
+
+[@CompBiochBiophLab/pmmunoz]( https://github.com/orgs/CompBiochBiophLab/teams/team-name/members)
