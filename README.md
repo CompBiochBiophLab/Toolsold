@@ -1,3 +1,5 @@
+Here you have a compilation of courses  that may be interesting to have  in mind. I am sure you may find it a bit eclectic, but i hope it will be useful.
+
 # Introduction to Research for Essay Writing
 
 Writing is a task that sooner or latter every scientist must face at, and it is always nice to have a guide to start, specially for students.
@@ -16,7 +18,7 @@ https://www.amazon.es/gp/product/8428337276/ref=ppx_yo_dt_b_asin_title_o02_s00?i
 
 # python3
 
-There are thousands  or courses available on line, both on youtube and coursera, here I add 3 links, but many conditioners can be taken when choosing a course. I strongly recommend to chose a course with  a teacher which is easily understood and fulfilling your interests.
+There are thousands  of courses available on line, both on youtube and coursera, here I add 3 links, but many conditioners can be taken when choosing a course. I strongly recommend to chose a course with  a teacher which is easily understood and fulfilling your interests.
 
 general propose 
 
@@ -33,7 +35,7 @@ https://www.youtube.com/watch?v=rfscVS0vtbw
 
  https://www.youtube.com/watch?v=Ekp2mfxQSzw
 
-I think this course may be interesting for people who don’t have any interest in  programming but they need to do some statistics in its work
+I think this course may be interesting for people who don’t have any interest in  programming but they need to do some statistics in their work
 
 But for those who want to go deeper into R here are the basics on R programming, a smooth introduction in the topic is always interesting.
 
@@ -68,7 +70,7 @@ https://www.coursera.org/search?query=bioinformatics
 
 # Machine learning
 
- This is a hot topic in out field, and knowing the basics to start uisng it is always interessitng+
+ This is a hot topic in out field, and knowing the basics to start uisng it is always interessitng
 
 https://www.youtube.com/watch?v=YIdL6sJSoGE&list=PLsSUJubNtkrCESp-eEiWayFa3vQ2VN3kK
 
