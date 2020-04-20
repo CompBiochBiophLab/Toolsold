@@ -82,4 +82,4 @@ https://developers.google.com/machine-learning/crash-course/ml-intro
 
 ### On this document
 
-[@CompBiochBiophLab/pmmunoz]( https://github.com/orgs/CompBiochBiophLab/teams/team-name/members)
+[@CompBiochBiophLab/pmmunoz](https://github.com/orgs/CompBiochBiophLab/people)
