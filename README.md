@@ -26,6 +26,9 @@ https://www.python-course.eu/
 
 https://www.youtube.com/watch?v=rfscVS0vtbw
 
+Hallmarks of scientific software
+
+https://grst.github.io/bioinformatics/2020/07/16/hallmarks-scientific-software.html
 
 # R
  
