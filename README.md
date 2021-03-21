@@ -18,7 +18,7 @@ https://www.amazon.es/gp/product/8428337276/ref=ppx_yo_dt_b_asin_title_o02_s00?i
 
 There are thousands  or courses available on line, both on youtube and coursera, here I add 3 links, but many conditioners can be taken when choosing a course. I strongly recommend to chose a course with  a teacher which is easily understood and fulfilling your interests.
 
-general propose 
+general purpose 
 
 https://www.coursera.org/specializations/python
 
