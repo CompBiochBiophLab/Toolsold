@@ -9,7 +9,9 @@
 	numbering=true
 	autoSave=true
 	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># Using CBBL tools
+<!-- /vscode-markdown-toc -->
+
+# Using CBBL tools
 
 CBBL tools is a collection of tools that the [CBBL](https://mon.uvic.cat/cbbl) members have developed to help dealing with usual tasks. The repository is not perfect, nor nicely updated... It represent a starting point to face some typical tasks when dealing with bioinformatics, computational chemistry, molecular simulations, etc...
 
