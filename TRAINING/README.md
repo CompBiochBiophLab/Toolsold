@@ -1,1 +1,0 @@
-# List of interesting training tools to start working at the CBBL
