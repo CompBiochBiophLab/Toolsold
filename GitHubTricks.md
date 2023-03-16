@@ -1,4 +1,4 @@
-## Quick push of new additions/cheanges from a local repo into github
+## Quick push of new additions/changes from a local repo into github
 
 ```
 git add . #be sure to be in the folder containing the modifications
