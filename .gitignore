@@ -1,5 +1,6 @@
 # avoid all datadownload folders
 dataDownload
+output
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
