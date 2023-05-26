@@ -25,6 +25,7 @@ from datetime import datetime, date
 
 def create_gantt_chart(tasks):
     fig, ax = plt.subplots(figsize=(8, 5))
+    ax.yaxis.tick_right()
 
     # Filtra les tasques eliminades
     tasks = [task for task in tasks if not task['delete']]
@@ -48,23 +49,31 @@ def create_gantt_chart(tasks):
         end = (task['end'] - reference_date).days
         duration = end - start
 
+        if task['type'] == 'CALL':
+            color = 'red'
+        elif task['type'] == 'TEACH':
+            color = 'blue'
+        else:
+            color = 'black' 
+
         if task['start'].date() < current_date and task['end'].date() < current_date:
             # Tasca totalment fora del gràfic
             current_date = task['start'].date()
             current_datetime = datetime.combine(current_date, datetime.min.time())
-            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color='red', alpha=0.8)
-        elif task['is_milestone'] == 'True':
+            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color='yellow', alpha=0.8)
+        elif task['is_milestone']:
             # Plot milestone as a vertical line
-            ax.plot([start, start], [i * 10, i * 10 + 10], color='red', linewidth=2)
-            ax.text(start, i * 10 + 15, task['name'], ha='left', va='center', color='red')
+            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color=color, alpha=0.8)
+            ax.plot([end, end], [i * 10, i * 10 + 10], color=color, linewidth=2)
+            #ax.text(end, i * 10 + 5, task['name'], ha='left', va='center', color='green')
         else:
             # Plot task as a horizontal bar
-            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color='steelblue', alpha=0.8)
-            ax.text(start + duration / 2, i * 10 + 5, f'{duration} days', ha='center', va='center', color='white')
+            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color=color, alpha=0.8)
+            #ax.text(start + duration / 2, i * 10 + 5, f'{duration} days', ha='center', va='center', color='white')
 
             # Display people responsible
-            people = ', '.join(task['people_responsible'])
-            ax.text(start, i * 10 + 5, people, ha='left', va='center')
+        people = ', '.join(task['people_responsible'])
+        ax.text(start, i * 10 + 5, people, ha='right', va='center')
  
     # Set the x-axis limits
     min_start = min(task['start'] for task in tasks if task['start'] >= current_datetime)
