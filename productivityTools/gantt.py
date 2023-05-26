@@ -109,8 +109,8 @@ def create_gantt_chart(tasks):
 
     # Display the Gantt chart
 
-    plt.savefig(home+'/Pictures/gantt.png')
-    plt.show()
+    plt.savefig(home+'/Pictures/Wallpapers/gantt.png')
+    #plt.show()
 
 
 # Crear un objecte ArgumentParser
