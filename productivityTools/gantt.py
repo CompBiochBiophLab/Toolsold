@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import argparse
 
+from pathlib import Path
+home=str(Path.home())
+
 def read_tasks_from_csv(file_path):
     tasks = []
     with open(file_path, 'r') as csv_file:
@@ -105,6 +108,8 @@ def create_gantt_chart(tasks):
     plt.tight_layout()
 
     # Display the Gantt chart
+
+    plt.savefig(home+'/Pictures/gantt.png')
     plt.show()
 
 
