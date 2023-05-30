@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 import argparse
 
 from pathlib import Path
@@ -30,12 +31,15 @@ def create_gantt_chart(tasks):
     fig, ax = plt.subplots(figsize=(8, 5))
     ax.yaxis.tick_right()
 
-    # Filtra les tasques eliminades
-    tasks = [task for task in tasks if not task['delete']]
-
+  
     # Estableix el límit inferior de l'eix x com la data actual
     current_date = datetime.now().date()
     current_datetime = datetime.combine(current_date, datetime.min.time())
+
+    max_end = current_date+relativedelta(months=2)
+
+    # Filtra les tasques eliminades
+    tasks = [task for task in tasks if not task['delete'] and task['start'].date() < max_end]
 
     # Set the labels and ticks for y-axis
     labels = [task['name'] for task in tasks]
@@ -59,6 +63,14 @@ def create_gantt_chart(tasks):
         else:
             color = 'black' 
 
+    # Set the x-axis limits
+        #min_start = min(task['start'] for task in tasks if task['start'] >= current_datetime)
+        #max_end = max(task['end'] for task in tasks)
+
+        ax.set_xlim(current_datetime, max_end)
+
+     
+
         if task['start'].date() < current_date and task['end'].date() < current_date:
             # Tasca totalment fora del gràfic
             current_date = task['start'].date()
@@ -78,10 +90,7 @@ def create_gantt_chart(tasks):
         people = ', '.join(task['people_responsible'])
         ax.text(start, i * 10 + 5, people, ha='right', va='center')
  
-    # Set the x-axis limits
-    min_start = min(task['start'] for task in tasks if task['start'] >= current_datetime)
-    max_end = max(task['end'] for task in tasks)
-    ax.set_xlim(current_datetime, max_end)
+
 
     # Set the x-axis label
     ax.set_xlabel('Days')
