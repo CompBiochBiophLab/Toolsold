@@ -36,7 +36,7 @@ def create_gantt_chart(tasks):
     current_date = datetime.now().date()
     current_datetime = datetime.combine(current_date, datetime.min.time())
 
-    max_end = current_date+relativedelta(months=2)
+    max_end = current_date+relativedelta(months=3)
 
     # Filtra les tasques eliminades
     tasks = [task for task in tasks if not task['delete'] and task['start'].date() < max_end]
@@ -56,41 +56,34 @@ def create_gantt_chart(tasks):
         end = (task['end'] - reference_date).days
         duration = end - start
 
-        if task['type'] == 'CALL':
-            color = 'red'
-        elif task['type'] == 'TEACH':
-            color = 'blue'
-        else:
-            color = 'black' 
-
     # Set the x-axis limits
         #min_start = min(task['start'] for task in tasks if task['start'] >= current_datetime)
         #max_end = max(task['end'] for task in tasks)
 
         ax.set_xlim(current_datetime, max_end)
 
-     
-
         if task['start'].date() < current_date and task['end'].date() < current_date:
             # Tasca totalment fora del gràfic
             current_date = task['start'].date()
             current_datetime = datetime.combine(current_date, datetime.min.time())
-            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color='yellow', alpha=0.8)
+        elif task['start'].date() < current_date and task['end'].date() > current_date:
+            # Tasca ja començada
+            start = current_datetime
         elif task['is_milestone']:
-            # Plot milestone as a vertical line
-            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color=color, alpha=0.8)
-            ax.plot([end, end], [i * 10, i * 10 + 10], color=color, linewidth=2)
-            #ax.text(end, i * 10 + 5, task['name'], ha='left', va='center', color='green')
-        else:
-            # Plot task as a horizontal bar
-            ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', color=color, alpha=0.8)
-            #ax.text(start + duration / 2, i * 10 + 5, f'{duration} days', ha='center', va='center', color='white')
+            print('found milestone')
+            color = 'black'
 
-            # Display people responsible
+        edgecolor = 'white'
+        if task['type'] == 'CALL':
+            color = 'red'
+        elif task['type'] == 'TEACH':
+            color = 'blue'
+        else:
+            edgecolor = 'black'
+
+        ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', edgecolor=edgecolor, color=color, alpha=0.8)
         people = ', '.join(task['people_responsible'])
         ax.text(start, i * 10 + 5, people, ha='right', va='center')
- 
-
 
     # Set the x-axis label
     ax.set_xlabel('Days')
