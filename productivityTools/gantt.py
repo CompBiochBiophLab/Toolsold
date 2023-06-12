@@ -1,6 +1,6 @@
 import csv
 import matplotlib.pyplot as plt
-from datetime import datetime
+from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import argparse
 
@@ -24,8 +24,6 @@ def read_tasks_from_csv(file_path):
 
             tasks.append(row)
     return tasks
-
-from datetime import datetime, date
 
 def create_gantt_chart(tasks):
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -114,18 +112,11 @@ def create_gantt_chart(tasks):
     plt.savefig(home+'/Pictures/Wallpapers/gantt.png')
     #plt.show()
 
-
-# Crear un objecte ArgumentParser
-parser = argparse.ArgumentParser(description='Generate Gantt chart from CSV file')
-
-# Afegir l'argument per al camí del fitxer CSV
-parser.add_argument('csv_file', type=str, help='Path to the CSV file')
-
-# Parsejar els arguments de la línia de comandes
-args = parser.parse_args()
-
-# Obté el camí del fitxer CSV de l'argument
-csv_file_path = args.csv_file
+### parse arguments #####
+parser = argparse.ArgumentParser(description='Generate Gantt chart from CSV file') # Crear un objecte ArgumentParser
+parser.add_argument('csv_file', type=str, help='Path to the CSV file') # Afegir l'argument per al camí del fitxer CSV
+args = parser.parse_args() # Parsejar els arguments de la línia de comandes
+csv_file_path = args.csv_file # Obté el camí del fitxer CSV de l'argument
 
 # Llegeix el fitxer CSV i guarda les dades en una llista de tasques
 tasks = read_tasks_from_csv(csv_file_path)
